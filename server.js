@@ -13,7 +13,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(require('./routes'));
 
-app.get('/users', userCtrl.createUser);
+app.post('/users', userCtrl.createUser);
+app.get('/users', userCtrl.getUsers);
+app.get('/users/:id', userCtrl.getUser);
+app.delete('/users/:id', userCtrl.deleteUser);
+app.put('/users/:id', userCtrl.updateUser);
 
 app.listen(port, function(err){
     console.log("Listening on Port: " + port)
